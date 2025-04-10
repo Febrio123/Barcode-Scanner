@@ -7,6 +7,7 @@ function App() {
 	const [currentData, setCurrentData] = useState("No result");
 	const [scanHistory, setScanHistory] = useState([]);
 	const [torch, setTorch] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 
 	const beepSound = new Audio("../beep-313342.mp3");
 
@@ -24,6 +25,9 @@ function App() {
 	const handleFlashlight = () => {
 		setTorch(!torch);
 	};
+	const btnScan = () => {
+		setIsOpen(!isOpen);
+	};
 	return (
 		<>
 			<div className="box">
@@ -33,18 +37,28 @@ function App() {
 				/>
 				<div className="title">Scanner</div>
 				<div className="scan">
-					<BarcodeScannerComponent
-						width={500}
-						height={500}
-						onUpdate={handleScan}
-						torch={torch}
-					/>
+					{isOpen && (
+						<BarcodeScannerComponent
+							width={500}
+							height={500}
+							onUpdate={handleScan}
+							torch={torch}
+							stopStream={isOpen}
+						/>
+					)}
 				</div>
-				<button
-					className="torch"
-					onClick={handleFlashlight}>
-					nyalakan lampu
-				</button>
+				<div className="btn">
+					<button
+						className="scanBarcode"
+						onClick={btnScan}>
+						Scan Barcode
+					</button>
+					<button
+						className="torch"
+						onClick={handleFlashlight}>
+						nyalakan lampu
+					</button>
+				</div>
 				<p>Scanned Data: {currentData}</p>
 				<h2>Scan History</h2>
 				<table>

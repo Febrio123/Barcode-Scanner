@@ -31,3 +31,7 @@ td {
 th {
 	background-color: #f2f2f2;
 }
+.btn {
+	display: flex;
+	gap: 10px;
+}

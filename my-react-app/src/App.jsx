@@ -6,6 +6,7 @@ import "./App.css";
 function App() {
 	const [currentData, setCurrentData] = useState("No result");
 	const [scanHistory, setScanHistory] = useState([]);
+	const [torch, setTorch] = useState(false);
 
 	const beepSound = new Audio("../beep-313342.mp3");
 
@@ -20,6 +21,9 @@ function App() {
 			setCurrentData("No result");
 		}
 	};
+	const handleFlashlight = () => {
+		setTorch(!torch);
+	};
 	return (
 		<>
 			<div className="box">
@@ -33,9 +37,14 @@ function App() {
 						width={500}
 						height={500}
 						onUpdate={handleScan}
-						delay={1500}
+						torch={torch}
 					/>
 				</div>
+				<button
+					className="torch"
+					onClick={handleFlashlight}>
+					nyalakan lampu
+				</button>
 				<p>Scanned Data: {currentData}</p>
 				<h2>Scan History</h2>
 				<table>

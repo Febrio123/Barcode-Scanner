@@ -43,6 +43,7 @@ function App() {
 							height={500}
 							onUpdate={handleScan}
 							torch={torch}
+							delay={500}
 							stopStream={isOpen}
 						/>
 					)}

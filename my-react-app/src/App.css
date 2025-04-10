@@ -1,0 +1,33 @@
+/* App.css */
+.box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: Arial, sans-serif;
+}
+
+.title {
+	font-size: 2em;
+	margin: 20px;
+}
+
+.scan {
+	margin: 20px;
+}
+
+table {
+	margin-top: 20px;
+	border-collapse: collapse;
+	width: 80%;
+}
+
+table,
+th,
+td {
+	border: 1px solid #333;
+	padding: 8px;
+}
+
+th {
+	background-color: #f2f2f2;
+}
